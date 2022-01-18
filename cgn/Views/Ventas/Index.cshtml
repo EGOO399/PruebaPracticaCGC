@@ -1,0 +1,47 @@
+﻿@model IEnumerable<cgn.Models.Entities.Venta>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Index</h1>
+
+<p>
+    <a asp-action="Create">Nuevo</a>
+</p>
+<table class="table-dark table-bordered">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Cliente)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Producto)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Cantidad)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Cliente)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Producto)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Cantidad)
+            </td>
+            <td>
+                <a asp-action="Edit" class="btn btn-primary" asp-route-id="@item.VentaId">Editar</a> |
+                <a asp-action="Details"  class="btn btn-warning" asp-route-id="@item.VentaId">Detalles</a> |
+                <a asp-action="Delete" class="btn btn-danger" asp-route-id="@item.VentaId">Eliminar</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
